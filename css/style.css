@@ -11,7 +11,7 @@ body {
 }
 
 .navbar-nav .nav-link:hover {
-    color: #ffc107 !important; /* Yellow hover effect */
+    color: #ffc107 !important;
 }
 
 /* ===== Hero Section ===== */
@@ -22,40 +22,118 @@ body {
 
 /* ===== Portfolio Section ===== */
 #portfolio {
-    transition: background-color 0.5s ease; /* Smooth color change via JS */
+    transition: background-color 0.5s ease;
 }
 
 /* Portfolio Card Styling */
 .project-card {
-    border-radius: 12px;
+    --card-accent: #0d6efd;
+    --card-selected-bg: #eaf2ff;
+
+    position: relative;
     overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 2px solid transparent;
+    border-radius: 16px;
+    background-color: #fff;
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.09);
+    cursor: pointer;
+    isolation: isolate;
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease,
+        background-color 0.35s ease;
 }
 
-/* Card hover animation */
+/* Accent line shown on hover and selection */
+.project-card::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+    height: 5px;
+    background-color: var(--card-accent);
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.3s ease;
+    pointer-events: none;
+}
+
+/* Individual project colors */
+.project-card--blue {
+    --card-accent: #b3a20b;
+    --card-selected-bg: #eaf2ff;
+}
+
+.project-card--purple {
+    --card-accent: #7c3aed;
+    --card-selected-bg: #f1eafe;
+}
+
+.project-card--green {
+    --card-accent: #f704c2;
+    --card-selected-bg: #e7f6ee;
+}
+
+/* Improved hover animation */
 .project-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    transform: translateY(-10px) scale(1.015);
+    border-color: var(--card-accent);
+    box-shadow: 0 16px 32px rgba(15, 23, 42, 0.18);
+}
+
+.project-card:hover::after,
+.project-card.is-selected::after {
+    transform: scaleX(1);
+}
+
+/* Selected state after clicking a card */
+.project-card.is-selected {
+    background-color: var(--card-selected-bg);
+    border-color: var(--card-accent);
+    transform: translateY(-5px);
+    box-shadow: 0 14px 30px rgba(15, 23, 42, 0.16);
+}
+
+.project-card.is-selected .project-title {
+    color: var(--card-accent);
+}
+
+/* Accessible keyboard focus */
+.project-card:focus-visible {
+    outline: 4px solid rgba(13, 110, 253, 0.25);
+    outline-offset: 4px;
 }
 
 /* Image hover effect */
 .project-card img {
-    transition: transform 0.4s ease;
+    transition: transform 0.45s ease, filter 0.35s ease;
 }
 
-.project-card:hover img {
-    transform: scale(1.05);
+.project-card:hover img,
+.project-card.is-selected img {
+    transform: scale(1.07);
+    filter: saturate(1.08) contrast(1.03);
 }
 
 /* Project title acts like a clickable link */
 .project-title {
     cursor: pointer;
-    transition: color 0.3s ease;
+    transition: color 0.3s ease, transform 0.3s ease;
 }
 
-.project-title:hover {
-    color: #da16da;
+.project-card:hover .project-title {
+    color: var(--card-accent);
+    transform: translateY(-2px);
+}
+
+/* Keep modal controls above decorative effects */
+.project-card .project-title,
+.project-card .btn {
+    position: relative;
+    z-index: 3;
 }
 
 /* ===== Buttons ===== */
@@ -78,4 +156,15 @@ body {
 /* ===== Footer ===== */
 footer {
     margin-top: 30px;
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .project-card,
+    .project-card::after,
+    .project-card img,
+    .project-title,
+    .btn-primary {
+        transition: none;
+    }
 }
