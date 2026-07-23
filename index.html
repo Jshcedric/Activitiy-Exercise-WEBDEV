@@ -1,16 +1,3 @@
-None selected
-
-Skip to content
-Using MyMail @ De La Salle Lipa Mail with screen readers
-Enable desktop notifications for MyMail @ De La Salle Lipa Mail.
-   OK  No thanks
-
-Conversations
- 
-Program Policies
-Powered by Google
-Last account activity: 2 hours ago
-Details
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,16 +14,36 @@ Details
 <body>
 
     <!-- ===== Navigation Bar ===== -->
-    <nav class="navbar navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-            <a class="navbar-brand" href="#">My Portfolio</a>
+            <a class="navbar-brand" href="#home">My Portfolio</a>
+
+            <!-- Hamburger button for mobile view -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Nav links -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#portfolio">Project</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </nav>
 
     <!-- ===== Hero Section ===== -->
     <section id="home" class="text-center py-5">
         <div class="container">
-            <h1>Hi, I'm Cedric</h1>
+            <h1>Hi, I'm Joshua Cedric D. Cortez</h1>
         </div>
     </section>
 
@@ -50,11 +57,11 @@ Details
                 <div class="col-md-4">
                     <div class="card project-card project-card--blue h-100" data-color="#FFF3B0" tabindex="0" role="button" aria-label="Select Money Converter project">
                         <img src="images/Money Converter.jpg" class="card-img-top" alt="Money Converter">
-                        <div class="card-body text-center">
+                        <div class="card-body text-center d-flex flex-column">
                             <h5 class="card-title project-title" data-bs-toggle="modal" data-bs-target="#modal1">
                                 Money Converter
                             </h5>
-                            <p class="card-text">A short description of project one goes here.</p>
+                            <p class="card-text flex-grow-1">A simple Python program that converts one currency to another using exchange rates.</p>
                             <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#modal1">
                                 View Details
                             </button>
@@ -66,11 +73,11 @@ Details
                 <div class="col-md-4">
                     <div class="card project-card project-card--purple h-100" data-color="#E6D6FF" tabindex="0" role="button" aria-label="Select World Clock project">
                         <img src="images/World Clock.jpg" class="card-img-top" alt="World Clock">
-                        <div class="card-body text-center">
+                        <div class="card-body text-center d-flex flex-column">
                             <h5 class="card-title project-title" data-bs-toggle="modal" data-bs-target="#modal2">
                                 World Clock
                             </h5>
-                            <p class="card-text">A short description of project two goes here.</p>
+                            <p class="card-text flex-grow-1">A Python program that displays the current time in different time zones.</p>
                             <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#modal2">
                                 View Details
                             </button>
@@ -82,11 +89,11 @@ Details
                 <div class="col-md-4">
                     <div class="card project-card project-card--green h-100" data-color="#FFD6E8" tabindex="0" role="button" aria-label="Select Todo List Student project">
                         <img src="images/Todo List Student.jpg" class="card-img-top" alt="Todo List Student">
-                        <div class="card-body text-center">
+                        <div class="card-body text-center d-flex flex-column">
                             <h5 class="card-title project-title" data-bs-toggle="modal" data-bs-target="#modal3">
                                 Todo List Student
                             </h5>
-                            <p class="card-text">A short description of project three goes here.</p>
+                            <p class="card-text flex-grow-1">A Python program designed to help students manage their tasks and assignments.</p>
                             <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#modal3">
                                 View Details
                             </button>
@@ -210,5 +217,3 @@ Details
     <script src="js/script.js"></script>
 </body>
 </html>
-index.html
-Displaying style.css.

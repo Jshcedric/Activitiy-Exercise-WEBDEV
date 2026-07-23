@@ -1,6 +1,10 @@
+/* Smooth scroll when clicking nav links */
+html {
+    scroll-behavior: smooth;
+}
 /* ===== General Styling ===== */
 body {
-    font-family: 'Segoe UI', Arial, sans-serif;
+    font-family: 'Segoe UI', 'Georgia', serif;
     background-color: #f8f9fa;
     color: #333;
 }
@@ -161,6 +165,19 @@ body {
 /* ===== Footer ===== */
 footer {
     margin-top: 30px;
+}
+
+/* ===== Font Size Adjustments ===== */
+#home h1 {
+    font-size: 2rem;
+}
+
+p {
+    font-size: 1.1rem;
+}
+
+.project-title {
+    font-size: 1.25rem;
 }
 
 /* Respect reduced-motion preferences */
