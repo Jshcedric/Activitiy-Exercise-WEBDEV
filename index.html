@@ -1,3 +1,16 @@
+None selected
+
+Skip to content
+Using MyMail @ De La Salle Lipa Mail with screen readers
+Enable desktop notifications for MyMail @ De La Salle Lipa Mail.
+   OK  No thanks
+
+Conversations
+ 
+Program Policies
+Powered by Google
+Last account activity: 2 hours ago
+Details
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,38 +27,18 @@
 <body>
 
     <!-- ===== Navigation Bar ===== -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-dark bg-dark">
         <div class="container">
             <a class="navbar-brand" href="#">My Portfolio</a>
-
-            <!-- Hamburger button for mobile view -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <!-- Nav links -->
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#home">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#portfolio">Portfolio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
-                    </li>
-                </ul>
-            </div>
         </div>
     </nav>
 
     <!-- ===== Hero Section ===== -->
     <section id="home" class="text-center py-5">
-    <div class="container">
-        <h1>Hi, I'm Cedric</h1>
-    </div>
-</section>
+        <div class="container">
+            <h1>Hi, I'm Cedric</h1>
+        </div>
+    </section>
 
     <!-- ===== Portfolio Section ===== -->
     <section id="portfolio" class="py-5">
@@ -53,48 +46,48 @@
             <h2 class="text-center mb-4">My Portfolio</h2>
             <div class="row g-4">
 
-                <!-- Project 1 -->
+                <!-- Project 1: Money Converter -->
                 <div class="col-md-4">
-                    <div class="card project-card project-card--blue h-100" tabindex="0" aria-label="Select Project One">
-                        <img src="https://cdn.freecodecamp.org/Money Converter.jpg" class="card-img-top" alt="Money Converter">
+                    <div class="card project-card project-card--blue h-100" data-color="#FFF3B0" tabindex="0" role="button" aria-label="Select Money Converter project">
+                        <img src="images/Money Converter.jpg" class="card-img-top" alt="Money Converter">
                         <div class="card-body text-center">
                             <h5 class="card-title project-title" data-bs-toggle="modal" data-bs-target="#modal1">
-                                Money Converter 
+                                Money Converter
                             </h5>
                             <p class="card-text">A short description of project one goes here.</p>
-                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal1">
+                            <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#modal1">
                                 View Details
                             </button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Project 2 -->
+                <!-- Project 2: World Clock -->
                 <div class="col-md-4">
-                    <div class="card project-card project-card--purple h-100" tabindex="0" aria-label="Select Project Two">
-                        <img src="World Clock.jpg" class="card-img-top" alt="World Clock">
+                    <div class="card project-card project-card--purple h-100" data-color="#E6D6FF" tabindex="0" role="button" aria-label="Select World Clock project">
+                        <img src="images/World Clock.jpg" class="card-img-top" alt="World Clock">
                         <div class="card-body text-center">
                             <h5 class="card-title project-title" data-bs-toggle="modal" data-bs-target="#modal2">
-                                World Clock 
+                                World Clock
                             </h5>
                             <p class="card-text">A short description of project two goes here.</p>
-                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal2">
+                            <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#modal2">
                                 View Details
                             </button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Project 3 -->
+                <!-- Project 3: Todo List Student -->
                 <div class="col-md-4">
-                    <div class="card project-card project-card--green h-100" tabindex="0" aria-label="Select Project Three">
-                        <img src="https://via.placeholder.com/400x250" class="card-img-top" alt="Project 3">
+                    <div class="card project-card project-card--green h-100" data-color="#FFD6E8" tabindex="0" role="button" aria-label="Select Todo List Student project">
+                        <img src="images/Todo List Student.jpg" class="card-img-top" alt="Todo List Student">
                         <div class="card-body text-center">
                             <h5 class="card-title project-title" data-bs-toggle="modal" data-bs-target="#modal3">
-                                Todo List Student 
+                                Todo List Student
                             </h5>
                             <p class="card-text">A short description of project three goes here.</p>
-                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal3">
+                            <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#modal3">
                                 View Details
                             </button>
                         </div>
@@ -107,18 +100,18 @@
 
     <!-- ===== Modals ===== -->
 
-    <!-- Modal 1 -->
-    <div class="modal fade" id="modal1" tabindex="-1">
+    <!-- Modal 1: Money Converter -->
+    <div class="modal fade project-modal" id="modal1" tabindex="-1" aria-labelledby="modal1Title" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Project One</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    <h5 class="modal-title" id="modal1Title">Money Converter</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <img src="https://via.placeholder.com/600x350" class="img-fluid mb-3" alt="Project 1 large">
-                    <p>Detailed description of project one. Explain what it does and the problem it solves.</p>
-                    <p><strong>Technologies used:</strong> HTML, CSS, JavaScript</p>
+                    <img src="images/Money Converter.jpg" class="img-fluid mb-3" alt="Money Converter large">
+                    <p>The Money Converter is a Python based program that allows users to convert currrencies from one country to another. The program accepts an amount from the user and calculates the equivalent value using a given exchange rate. It helps users understand currency differences and makes basic money conversion easier. </p>
+                    <p><strong>Technologies used:</strong> Python </p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -127,18 +120,18 @@
         </div>
     </div>
 
-    <!-- Modal 2 -->
-    <div class="modal fade" id="modal2" tabindex="-1">
+    <!-- Modal 2: World Clock -->
+    <div class="modal fade project-modal" id="modal2" tabindex="-1" aria-labelledby="modal2Title" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Project Two</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    <h5 class="modal-title" id="modal2Title">World Clock</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <img src="https://via.placeholder.com/600x350" class="img-fluid mb-3" alt="Project 2 large">
-                    <p>Detailed description of project two. Explain what it does and the problem it solves.</p>
-                    <p><strong>Technologies used:</strong> Bootstrap, JavaScript</p>
+                    <img src="images/World Clock.jpg" class="img-fluid mb-3" alt="World Clock large">
+                    <p>The World Clock is a Python based program that displays the current time in different time zones around the world. It allows users to view and compare times across multiple locations, making it easier to coordinate with people in different parts of the globe. </p>
+                    <p><strong>Technologies used:</strong> Python </p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -147,18 +140,18 @@
         </div>
     </div>
 
-    <!-- Modal 3 -->
-    <div class="modal fade" id="modal3" tabindex="-1">
+    <!-- Modal 3: Todo List Student -->
+    <div class="modal fade project-modal" id="modal3" tabindex="-1" aria-labelledby="modal3Title" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Project Three</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    <h5 class="modal-title" id="modal3Title">Todo List Student</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <img src="https://via.placeholder.com/600x350" class="img-fluid mb-3" alt="Project 3 large">
-                    <p>Detailed description of project three. Explain what it does and the problem it solves.</p>
-                    <p><strong>Technologies used:</strong> HTML, CSS, Bootstrap</p>
+                    <img src="images/Todo List Student.jpg" class="img-fluid mb-3" alt="Todo List Student large">
+                    <p>The Todo List Student is a Python based program designed to help students manage their tasks and assignments. It allows users to create, update, and delete todo items, set priorities, and track their progress. This tool helps students stay organized and focused on their academic goals.</p>
+                    <p><strong>Technologies used:</strong> Python </p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -174,35 +167,34 @@
 
             <form id="contactForm" class="col-md-6 mx-auto" novalidate>
 
-    <div class="mb-3">
-        <label for="fullName" class="form-label">Full Name</label>
-        <input type="text" class="form-control" id="fullName" placeholder="Enter your full name">
-    </div>
+                <div class="mb-3">
+                    <label for="fullName" class="form-label">Full Name</label>
+                    <input type="text" class="form-control" id="fullName" placeholder="Enter your full name">
+                </div>
 
-    <!-- PUT THE NEW EMAIL BLOCK HERE -->
-    <div class="mb-3">
-        <label for="email" class="form-label">Email Address</label>
-        <input type="text" class="form-control" id="email" placeholder="example@gmail.com">
-        <div class="invalid-feedback" id="emailError">
-            Please enter a valid Gmail address (example@gmail.com).
-        </div>
-    </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email Address</label>
+                    <input type="text" class="form-control" id="email" placeholder="example@gmail.com">
+                    <div class="invalid-feedback" id="emailError">
+                        Please enter a valid Gmail address (example@gmail.com).
+                    </div>
+                </div>
 
-    <div class="mb-3">
-        <label for="subject" class="form-label">Subject</label>
-        <input type="text" class="form-control" id="subject" placeholder="Enter subject">
-    </div>
+                <div class="mb-3">
+                    <label for="subject" class="form-label">Subject</label>
+                    <input type="text" class="form-control" id="subject" placeholder="Enter subject">
+                </div>
 
-    <div class="mb-3">
-        <label for="message" class="form-label">Message</label>
-        <textarea class="form-control" id="message" rows="4" placeholder="Enter your message"></textarea>
-    </div>
+                <div class="mb-3">
+                    <label for="message" class="form-label">Message</label>
+                    <textarea class="form-control" id="message" rows="4" placeholder="Enter your message"></textarea>
+                </div>
 
-    <div class="text-center">
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
 
-</form>
+            </form>
         </div>
     </section>
 
@@ -218,3 +210,5 @@
     <script src="js/script.js"></script>
 </body>
 </html>
+index.html
+Displaying style.css.

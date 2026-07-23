@@ -22,6 +22,7 @@ body {
 
 /* ===== Portfolio Section ===== */
 #portfolio {
+    background-color: #f8f9fa;
     transition: background-color 0.5s ease;
 }
 
@@ -64,7 +65,7 @@ body {
 /* Individual project colors */
 .project-card--blue {
     --card-accent: #b3a20b;
-    --card-selected-bg: #eaf2ff;
+    --card-selected-bg: #fff8cf;
 }
 
 .project-card--purple {
@@ -74,7 +75,7 @@ body {
 
 .project-card--green {
     --card-accent: #f704c2;
-    --card-selected-bg: #e7f6ee;
+    --card-selected-bg: #ffe7f8;
 }
 
 /* Improved hover animation */
@@ -109,6 +110,10 @@ body {
 
 /* Image hover effect */
 .project-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    object-position: top;
     transition: transform 0.45s ease, filter 0.35s ease;
 }
 
@@ -160,6 +165,7 @@ footer {
 
 /* Respect reduced-motion preferences */
 @media (prefers-reduced-motion: reduce) {
+    #portfolio,
     .project-card,
     .project-card::after,
     .project-card img,

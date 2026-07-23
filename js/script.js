@@ -1,5 +1,20 @@
 // ===== Portfolio card interactions =====
 const projectCards = document.querySelectorAll(".project-card");
+const portfolioSection = document.getElementById("portfolio");
+const projectModals = document.querySelectorAll(".project-modal");
+
+function resetPortfolioState() {
+    // Restore the portfolio section to its default background color.
+    if (portfolioSection) {
+        portfolioSection.style.backgroundColor = "";
+    }
+
+    // Remove the selected appearance from every project card.
+    projectCards.forEach((card) => {
+        card.classList.remove("is-selected");
+        card.setAttribute("aria-pressed", "false");
+    });
+}
 
 function toggleSelectedCard(selectedCard) {
     const wasSelected = selectedCard.classList.contains("is-selected");
@@ -7,15 +22,31 @@ function toggleSelectedCard(selectedCard) {
     // Keep only one project selected at a time.
     projectCards.forEach((card) => {
         card.classList.remove("is-selected");
+        card.setAttribute("aria-pressed", "false");
     });
 
-    // Clicking the selected card again removes the selected state.
-    if (!wasSelected) {
-        selectedCard.classList.add("is-selected");
+    // Clicking the selected card again returns the portfolio to default.
+    if (wasSelected) {
+        if (portfolioSection) {
+            portfolioSection.style.backgroundColor = "";
+        }
+        return;
+    }
+
+    selectedCard.classList.add("is-selected");
+    selectedCard.setAttribute("aria-pressed", "true");
+
+    // Change the portfolio background using the card's data-color value.
+    const selectedColor = selectedCard.dataset.color;
+
+    if (portfolioSection && selectedColor) {
+        portfolioSection.style.backgroundColor = selectedColor;
     }
 }
 
 projectCards.forEach((card) => {
+    card.setAttribute("aria-pressed", "false");
+
     card.addEventListener("click", () => {
         toggleSelectedCard(card);
     });
@@ -31,6 +62,11 @@ projectCards.forEach((card) => {
             toggleSelectedCard(card);
         }
     });
+});
+
+// Reset the portfolio background after any project modal is closed.
+projectModals.forEach((modal) => {
+    modal.addEventListener("hidden.bs.modal", resetPortfolioState);
 });
 
 // ===== Contact form validation =====
