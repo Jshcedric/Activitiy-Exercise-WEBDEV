@@ -1,8 +1,11 @@
-/* Smooth scroll when clicking nav links */
+/* Smooth scroll: when a nav link is clicked, the page glides to the section
+   instead of jumping instantly */
 html {
     scroll-behavior: smooth;
 }
+
 /* ===== General Styling ===== */
+/* Sets the default font and colors for the whole page */
 body {
     font-family: 'Segoe UI', 'Georgia', serif;
     background-color: #f8f9fa;
@@ -10,39 +13,45 @@ body {
 }
 
 /* ===== Navigation Bar ===== */
+/* Smooth color transition when hovering over nav links */
 .navbar-nav .nav-link {
     transition: color 0.3s ease;
 }
 
+/* Nav links turn yellow when hovered */
 .navbar-nav .nav-link:hover {
-    color: #ffc107 !important;
+    color: #ffc107 !important; /* !important overrides Bootstrap's default hover color */
 }
 
 /* ===== Hero Section ===== */
+/* Background and text color for the "Hi, I'm..." banner at the top */
 #home {
     background-color: #6997c5;
     color: rgb(94, 79, 99);
 }
 
 /* ===== Portfolio Section ===== */
+/* transition here allows the background color to fade smoothly
+   when script.js changes it (instead of switching instantly) */
 #portfolio {
     background-color: #f8f9fa;
     transition: background-color 0.5s ease;
 }
 
-/* Portfolio Card Styling */
+/* ===== Portfolio Card Styling ===== */
 .project-card {
+    /* CSS variables: default accent/selected colors, overridden per-card below */
     --card-accent: #0d6efd;
     --card-selected-bg: #eaf2ff;
 
-    position: relative;
-    overflow: hidden;
-    border: 2px solid transparent;
-    border-radius: 16px;
+    position: relative;       /* needed so the ::after accent line can be positioned inside the card */
+    overflow: hidden;         /* keeps the accent line and image corners from spilling outside the rounded border */
+    border: 2px solid transparent; /* invisible border by default, becomes colored on hover/selection */
+    border-radius: 16px;      /* rounded corners */
     background-color: #fff;
-    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.09);
-    cursor: pointer;
-    isolation: isolate;
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.09); /* soft drop shadow */
+    cursor: pointer;          /* shows a hand cursor to hint the card is clickable */
+    isolation: isolate;       /* keeps this card's stacking context separate from others */
     transition:
         transform 0.3s ease,
         box-shadow 0.3s ease,
@@ -50,7 +59,8 @@ body {
         background-color 0.35s ease;
 }
 
-/* Accent line shown on hover and selection */
+/* Decorative colored line at the bottom of the card.
+   Hidden by default (scaleX(0)), and animates into view on hover/selection. */
 .project-card::after {
     content: "";
     position: absolute;
@@ -63,10 +73,11 @@ body {
     transform: scaleX(0);
     transform-origin: center;
     transition: transform 0.3s ease;
-    pointer-events: none;
+    pointer-events: none; /* so this decorative line never blocks clicks */
 }
 
-/* Individual project colors */
+/* ===== Individual project colors ===== */
+/* Each project gets its own accent color for the hover line and selected background */
 .project-card--blue {
     --card-accent: #b3a20b;
     --card-selected-bg: #fff8cf;
@@ -82,19 +93,22 @@ body {
     --card-selected-bg: #ffe7f8;
 }
 
-/* Improved hover animation */
+/* ===== Hover animation ===== */
+/* Card lifts up slightly and gets a bigger shadow when hovered */
 .project-card:hover {
     transform: translateY(-10px) scale(1.015);
     border-color: var(--card-accent);
     box-shadow: 0 16px 32px rgba(15, 23, 42, 0.18);
 }
 
+/* Reveals the bottom accent line on hover, or keeps it visible if the card is selected */
 .project-card:hover::after,
 .project-card.is-selected::after {
     transform: scaleX(1);
 }
 
-/* Selected state after clicking a card */
+/* ===== Selected state ===== */
+/* Applied by script.js (adds the "is-selected" class) when a card is clicked */
 .project-card.is-selected {
     background-color: var(--card-selected-bg);
     border-color: var(--card-accent);
@@ -102,43 +116,48 @@ body {
     box-shadow: 0 14px 30px rgba(15, 23, 42, 0.16);
 }
 
+/* Changes the project title color to match the card's accent when selected */
 .project-card.is-selected .project-title {
     color: var(--card-accent);
 }
 
-/* Accessible keyboard focus */
+/* ===== Accessible keyboard focus ===== */
+/* Shows a visible outline when a card is focused using the keyboard (Tab key) */
 .project-card:focus-visible {
     outline: 4px solid rgba(13, 110, 253, 0.25);
     outline-offset: 4px;
 }
 
-/* Image hover effect */
+/* ===== Image styling ===== */
+/* Forces all card images to the same size/crop so cards look aligned */
 .project-card img {
     width: 100%;
     height: 220px;
-    object-fit: cover;
-    object-position: top;
+    object-fit: cover;       /* crops the image neatly instead of stretching/squishing it */
+    object-position: top;    /* keeps the top portion of the image visible when cropped */
     transition: transform 0.45s ease, filter 0.35s ease;
 }
 
+/* Slight zoom + color boost on the image when hovering or selecting the card */
 .project-card:hover img,
 .project-card.is-selected img {
     transform: scale(1.07);
     filter: saturate(1.08) contrast(1.03);
 }
 
-/* Project title acts like a clickable link */
+/* ===== Project title ===== */
 .project-title {
-    cursor: pointer;
+    cursor: pointer; /* hints that clicking the title also opens the modal */
     transition: color 0.3s ease, transform 0.3s ease;
 }
 
+/* Title color changes and lifts slightly when the card is hovered */
 .project-card:hover .project-title {
     color: var(--card-accent);
     transform: translateY(-2px);
 }
 
-/* Keep modal controls above decorative effects */
+/* Keeps the title and button clickable above the decorative accent line (z-index) */
 .project-card .project-title,
 .project-card .btn {
     position: relative;
@@ -152,12 +171,14 @@ body {
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
+/* Button gets slightly darker and grows a little on hover */
 .btn-primary:hover {
     background-color: #0b5ed7;
     transform: scale(1.05);
 }
 
 /* ===== Contact Form ===== */
+/* Rounds the corners of all input fields in the contact form */
 #contact .form-control {
     border-radius: 8px;
 }
@@ -180,7 +201,9 @@ p {
     font-size: 1.25rem;
 }
 
-/* Respect reduced-motion preferences */
+/* ===== Accessibility: Respect reduced-motion preferences ===== */
+/* If a user's device/browser has "reduce motion" turned on (for accessibility),
+   this disables all the animations/transitions above so nothing moves for them */
 @media (prefers-reduced-motion: reduce) {
     #portfolio,
     .project-card,

@@ -5,25 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Portfolio</title>
 
-    <!-- Bootstrap 5 CDN -->
+    <!-- Bootstrap 5 CDN: gives us pre-built responsive components (navbar, cards, modals, forms) -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Our custom CSS -->
+    <!-- Our custom CSS: overrides/extends Bootstrap with our own design -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
     <!-- ===== Navigation Bar ===== -->
+    <!-- navbar-expand-lg: turns into a hamburger menu on small screens -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
+            <!-- Clicking the brand name scrolls back to the Home section -->
             <a class="navbar-brand" href="#home">My Portfolio</a>
 
-            <!-- Hamburger button for mobile view -->
+            <!-- Hamburger button, only visible on mobile/small screens -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <!-- Nav links -->
+            <!-- Nav links: each href points to a section ID further down the page -->
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
@@ -41,6 +43,7 @@
     </nav>
 
     <!-- ===== Hero Section ===== -->
+    <!-- The big intro/banner area at the top of the page -->
     <section id="home" class="text-center py-5">
         <div class="container">
             <h1>Hi, I'm Joshua Cedric D. Cortez</h1>
@@ -48,19 +51,28 @@
     </section>
 
     <!-- ===== Portfolio Section ===== -->
+    <!-- Displays all 3 projects as Bootstrap cards in a responsive grid -->
     <section id="portfolio" class="py-5">
         <div class="container">
             <h2 class="text-center mb-4">My Portfolio</h2>
             <div class="row g-4">
 
-                <!-- Project 1: Money Converter -->
+                <!-- ===== Project 1: Money Converter ===== -->
+                <!-- col-md-4: takes up 1/3 of the row on medium+ screens, full width on mobile -->
                 <div class="col-md-4">
+                    <!--
+                        data-color: custom attribute (not built-in HTML) read by script.js
+                        to know which background color to apply when this card is clicked.
+                        tabindex="0" + role="button": lets keyboard users Tab to this card and "click" it.
+                    -->
                     <div class="card project-card project-card--blue h-100" data-color="#FFF3B0" tabindex="0" role="button" aria-label="Select Money Converter project">
                         <img src="images/Money Converter.jpg" class="card-img-top" alt="Money Converter">
                         <div class="card-body text-center d-flex flex-column">
+                            <!-- Clicking the title also opens the matching modal (#modal1) -->
                             <h5 class="card-title project-title" data-bs-toggle="modal" data-bs-target="#modal1">
                                 Money Converter
                             </h5>
+                            <!-- flex-grow-1: pushes the button down so all 3 cards line up evenly -->
                             <p class="card-text flex-grow-1">A simple Python program that converts one currency to another using exchange rates.</p>
                             <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#modal1">
                                 View Details
@@ -69,7 +81,7 @@
                     </div>
                 </div>
 
-                <!-- Project 2: World Clock -->
+                <!-- ===== Project 2: World Clock ===== -->
                 <div class="col-md-4">
                     <div class="card project-card project-card--purple h-100" data-color="#E6D6FF" tabindex="0" role="button" aria-label="Select World Clock project">
                         <img src="images/World Clock.jpg" class="card-img-top" alt="World Clock">
@@ -85,7 +97,7 @@
                     </div>
                 </div>
 
-                <!-- Project 3: Todo List Student -->
+                <!-- ===== Project 3: Todo List Student ===== -->
                 <div class="col-md-4">
                     <div class="card project-card project-card--green h-100" data-color="#FFD6E8" tabindex="0" role="button" aria-label="Select Todo List Student project">
                         <img src="images/Todo List Student.jpg" class="card-img-top" alt="Todo List Student">
@@ -105,7 +117,9 @@
         </div>
     </section>
 
-    <!-- ===== Modals ===== -->
+    <!-- ===== Modals (Popup Boxes) ===== -->
+    <!-- Each modal shows a bigger image + full description when "View Details" is clicked -->
+    <!-- project-modal class is used by script.js to detect when a modal closes and reset colors -->
 
     <!-- Modal 1: Money Converter -->
     <div class="modal fade project-modal" id="modal1" tabindex="-1" aria-labelledby="modal1Title" aria-hidden="true">
@@ -113,6 +127,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="modal1Title">Money Converter</h5>
+                    <!-- data-bs-dismiss="modal": Bootstrap's built-in way to close the modal -->
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -168,6 +183,7 @@
     </div>
 
     <!-- ===== Contact Section ===== -->
+    <!-- novalidate: turns off the browser's built-in validation so our custom JS validation runs instead -->
     <section id="contact" class="py-5">
         <div class="container">
             <h2 class="text-center mb-4">Contact Me</h2>
@@ -182,6 +198,8 @@
                 <div class="mb-3">
                     <label for="email" class="form-label">Email Address</label>
                     <input type="text" class="form-control" id="email" placeholder="example@gmail.com">
+                    <!-- invalid-feedback: Bootstrap class that shows this message automatically
+                         when the input has the "is-invalid" class (added by script.js) -->
                     <div class="invalid-feedback" id="emailError">
                         Please enter a valid Gmail address (example@gmail.com).
                     </div>
@@ -210,10 +228,10 @@
         <p class="mb-0">&copy; 2026 My Portfolio. All Rights Reserved.</p>
     </footer>
 
-    <!-- Bootstrap JS Bundle (includes Popper) -->
+    <!-- Bootstrap JS Bundle: powers the navbar toggle, modals, and other Bootstrap interactive features -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Our custom JS -->
+    <!-- Our custom JS: handles form validation and portfolio card color-changing -->
     <script src="js/script.js"></script>
 </body>
 </html>
